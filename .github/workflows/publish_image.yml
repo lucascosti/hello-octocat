@@ -1,6 +1,33 @@
 name: Publish Docker image
 on: push
 jobs:
+
+  push_to_registries:
+
+    name: Push Docker image to registries
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v1
+        with:
+          username: lucascosti
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: lucascosti/hello-octocat
+          tag_with_ref: true
+
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v1
+        with:
+          username: lucascosti
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: lucascosti/hello-octocat/hello-octocat
+          tag_with_ref: true
+
   # pushtodockerhub:
   #   name: Push to Docker Hub
   #   runs-on: ubuntu-latest
@@ -15,17 +42,17 @@ jobs:
   #         repository: lucascosti/hello-octocat
   #         tag_with_ref: true
     
-  pushtogithubpackages:
-    name: Push to GitHub Packages
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repo
-        uses: actions/checkout@v2
-      - name: Push to GitHub Packages
-        uses: docker/build-push-action@v1
-        with:
-          username: lucascosti
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: lucascosti/hello-octocat/hello-octocat
-          tag_with_ref: true
+  # pushtogithubpackages:
+  #   name: Push to GitHub Packages
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Check out repo
+  #       uses: actions/checkout@v2
+  #     - name: Push to GitHub Packages
+  #       uses: docker/build-push-action@v1
+  #       with:
+  #         username: lucascosti
+  #         password: ${{ secrets.GITHUB_TOKEN }}
+  #         registry: docker.pkg.github.com
+  #         repository: lucascosti/hello-octocat/hello-octocat
+  #         tag_with_ref: true
