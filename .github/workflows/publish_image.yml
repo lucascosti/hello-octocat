@@ -27,5 +27,5 @@ jobs:
           username: lucascosti
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: lucascosti/hello-octocat
+          repository: lucascosti/hello-octocat/hello-octocat
           tag_with_ref: true
