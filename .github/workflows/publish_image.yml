@@ -1,17 +1,30 @@
 name: Publish Docker image
 on: push
 jobs:
-  pushtodockerhub:
-    name: Push to Docker Hub
+  # pushtodockerhub:
+  #   name: Push to Docker Hub
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Check out repo
+  #       uses: actions/checkout@v2
+  #     - name: Push to Docker Hub
+  #       uses: docker/build-push-action@v1
+  #       with:
+  #         username: lucascosti
+  #         password: ${{ secrets.DOCKER_PASSWORD }}
+  #         repository: lucascosti/hello-octocat
+  #         tag_with_ref: true
+    
+  pushtogithubpackages:
+    name: Push to GitHub Packages
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
-      - name: Push to Docker Hub
+      - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
           username: lucascosti
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: lucascosti/hello-octocat
+          password: ${{ secrets.GITHUB_TOKEN }}
+          repository: docker.pkg.github.com/lucascosti/hello-octocat/hello-octocat
           tag_with_ref: true
-          
