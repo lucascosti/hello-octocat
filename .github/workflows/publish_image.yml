@@ -1,5 +1,5 @@
 name: Publish Docker image
-## only publish when are changes to master
+## only publish when are changes to master, or a release
 on:
   push:
     branches:
@@ -17,19 +17,9 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
-
-      - name: Push to Docker Hub
-        uses: docker/build-push-action@v1
-        with:
-          username: lucascosti
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: lucascosti/hello-octocat
-          tag_with_ref: true
-
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          username: lucascosti
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
           repository: lucascosti/hello-octocat/hello-octocat
