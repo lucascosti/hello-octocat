@@ -1,8 +1,10 @@
 name: Publish Docker image
-## only publish when there is a new release on GitHub
+## only publish when are changes to master
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - master
+
 jobs:
 
   push_to_registries:
