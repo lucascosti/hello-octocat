@@ -5,10 +5,10 @@ Docker container that returns Octocat wisdom via the GitHub API
                MMMMMMMMMMMMMMMMMMM
                MMMMMMMMMMMMMMMMMMM      ______________________________________
               MMMMMMMMMMMMMMMMMMMMM    |                                      |
-             MMMMMMMMMMMMMMMMMMMMMMM   |       Everything is awesome.         |
-            MMMMMMMMMMMMMMMMMMMMMMMM   |_   __________________________________|
-            MMMM::- -:::::::- -::MMMM    |/
-             MM~:~ 00~:::::~ 00~:~MM
+             MMMMMMMMMMMMMMMMMMMMMMM   |   Everything is awesome and          |
+            MMMMMMMMMMMMMMMMMMMMMMMM   |   cool when you're part of a team.   |
+            MMMM::- -:::::::- -::MMMM  |_  ___________________________________|  
+             MM~:~ 00~:::::~ 00~:~MM.    |/
         .. MMMMM::.00:::+:::.00::MMMMM ..
               .MM::::: ._. :::::MM.
                  MMMM;:::::;MMMM
