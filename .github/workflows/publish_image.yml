@@ -37,7 +37,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: lucascosti/hello-octocat:${{ format(github.ref,  }}
+          tags: lucascosti/hello-octocat:${{ github.ref }}
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v3
